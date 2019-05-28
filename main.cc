@@ -11,7 +11,6 @@ extern "C" {
 #include <emu_c_utils/hooks.h>
 }
 
-#include "algebra.hh"
 #include "types.hh"
 
 void build(prMatrix_t L, prIndexArray_t riL, prIndexArray_t rjL)
@@ -101,22 +100,6 @@ int main(int argc, char* argv[])
     delete rjL;
 
     rMatrix_t * C = rMatrix_t::create(nnodes);
-
-    // solve L * L^T using ABT kernel
-    for (Index_t i = 0; i < NODELETS(); ++i)
-    {
-        cilk_migrate_hint(L->row_addr(i));
-        cilk_spawn ABT_Mask_NoAccum_kernel(C, L, L, L);
-    }
-    cilk_sync;
-
-    // reduce
-    Scalar_t nTri = reduce(C);
-    std::cerr << "nTri: " << nTri << std::endl;
-
-    // clean up matrices
-    delete L;
-    delete C;
 
 #ifdef __PROFILE__
     hooks_region_end();

@@ -1,4 +1,4 @@
-HDRS = algebra.hh types.hh utils.hh
+HDRS = types.hh
 SRCS = main.cc
 EMU_OBJS = $(subst .cc,.emu.o,$(SRCS))
 
@@ -18,7 +18,7 @@ CPPFLAGS =
 CPPFLAGS += -D__PROFILE__
 LDFLAGS = -lemu_c_utils
 
-EXE  = llt
+EXE  = parallel_io
 EMU_EXE = $(EXE).mwx
 #INPUT = tri-8-10-0.tsv
 #INPUT = tri-8-11-1.tsv
