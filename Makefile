@@ -16,6 +16,7 @@ EMU_PROFILE = $(EMU_PATH)/bin/emusim_profile
 
 CPPFLAGS =
 CPPFLAGS += -D__PROFILE__
+LDFLAGS =
 LDFLAGS = -lemu_c_utils
 
 EXE  = parallel_io
@@ -34,7 +35,8 @@ EMU_EXE = $(EXE).mwx
 #INPUT = tri-64-191-184.tsv
 #INPUT = tri-128-388-379.tsv
 #INPUT = tri-256-934-994.tsv
-INPUT = tri-512-1737-1582.tsv
+#INPUT = tri-512-1737-1582.tsv
+INPUT = tri-512-1737-1582.bin
 #INPUT = tri-1021-3606-3190.tsv
 #INPUT = tri-1024-3631-3223.tsv
 #INPUT = tri-2048-7802-8116.tsv
