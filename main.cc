@@ -99,8 +99,6 @@ int main(int argc, char* argv[])
     delete riL;
     delete rjL;
 
-    rMatrix_t * C = rMatrix_t::create(nnodes);
-
 #ifdef __PROFILE__
     hooks_region_end();
 #endif
